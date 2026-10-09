@@ -1,16 +1,17 @@
 import { Link, useParams } from "react-router-dom";
 import { products } from "../data/products";
 import { useCartStore } from "../store/useCartStore";
+import { useToastStore } from "../store/useToastStore";
 
 export default function Product() {
     const { id } = useParams();
     const addToCart = useCartStore((state) => state.addToCart);
+    const showToast = useToastStore((state) => state.showToast);
     const product = products.find((p) => p.id === Number(id));
 
     if (!product) {
         return (
             <>
-
                 <main className="pt-40 px-8 max-w-2xl mx-auto text-center min-h-screen">
                     <p className="text-xs tracking-widest uppercase text-foreground/40 mb-4">
                         Archive error
@@ -38,7 +39,6 @@ export default function Product() {
 
     return (
         <>
-
             <main className="pt-32 px-8 max-w-6xl mx-auto">
                 <div className="grid md:grid-cols-2 gap-20">
                     <div className="bg-black/40 h-[520px] flex items-center justify-center overflow-hidden">
@@ -67,7 +67,10 @@ export default function Product() {
                         </span>
 
                         <button
-                            onClick={() => addToCart(product)}
+                            onClick={() => {
+                                addToCart(product);
+                                showToast(product.name);
+                            }}
                             className="
                 border border-white/20
                 px-10 py-4

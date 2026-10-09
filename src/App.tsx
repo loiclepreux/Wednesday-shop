@@ -6,11 +6,13 @@ import Academy from "./pages/Academy";
 import Checkout from "./pages/checkout";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Toast from "./components/Toast";
 
 export default function App() {
     return (
         <>
             <Header />
+            <Toast />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/product/:id" element={<Product />} />
