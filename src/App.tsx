@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Product from "../src/pages/Product";
-import Cart from "../src/pages/Cart";
-import Academy from "../src/pages/Academy";
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
+import Academy from "./pages/Academy";
+import Checkout from "./pages/checkout";
 
 export default function App() {
     return (
@@ -11,6 +12,7 @@ export default function App() {
             <Route path="/product/:id" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/academy" element={<Academy />} />
+            <Route path="/checkout" element={<Checkout />} />
         </Routes>
     );
 }

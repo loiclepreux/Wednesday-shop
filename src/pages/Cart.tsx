@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import { useCartStore } from "../store/useCartStore";
 import type { Product } from "../types/product";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
     const items = useCartStore((state) => state.items);
@@ -89,7 +90,8 @@ export default function Cart() {
                         </div>
 
                         <div className="pt-10 text-right">
-                            <button
+                            <Link
+                                to="/checkout"
                                 className="
                   border border-white/20
                   px-12 py-4
@@ -99,7 +101,7 @@ export default function Cart() {
                 "
                             >
                                 Checkout
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 )}
