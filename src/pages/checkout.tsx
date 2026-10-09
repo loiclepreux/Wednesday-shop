@@ -1,7 +1,6 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
 import { useCartStore } from "../store/useCartStore";
 
 const inputClass =
@@ -30,7 +29,6 @@ export default function Checkout() {
     if (orderNumber) {
         return (
             <>
-                <Header />
                 <main className="pt-40 px-8 max-w-2xl mx-auto text-center min-h-screen">
                     <p className="text-xs tracking-widest uppercase text-foreground/40 mb-4">
                         Order sealed
@@ -56,7 +54,6 @@ export default function Checkout() {
     if (items.length === 0) {
         return (
             <>
-                <Header />
                 <main className="pt-40 px-8 max-w-2xl mx-auto text-center min-h-screen">
                     <p className="text-foreground/60 mb-12">
                         Your bag is empty. There is nothing to seal.
@@ -71,7 +68,6 @@ export default function Checkout() {
 
     return (
         <>
-            <Header />
 
             <main className="pt-32 pb-24 px-8 max-w-6xl mx-auto">
                 <h1 className="font-title text-4xl tracking-widest mb-16">

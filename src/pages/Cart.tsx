@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import { useCartStore } from "../store/useCartStore";
 import type { Product } from "../types/product";
 import { Link } from "react-router-dom";
@@ -15,7 +14,6 @@ export default function Cart() {
 
     return (
         <>
-            <Header />
 
             <main className="pt-32 px-8 max-w-6xl mx-auto">
                 <h1 className="font-title text-4xl tracking-widest mb-16">

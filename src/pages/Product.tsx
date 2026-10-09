@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import Header from "../components/Header";
 import { products } from "../data/products";
 import { useCartStore } from "../store/useCartStore";
 
@@ -11,7 +10,6 @@ export default function Product() {
     if (!product) {
         return (
             <>
-                <Header />
 
                 <main className="pt-40 px-8 max-w-2xl mx-auto text-center min-h-screen">
                     <p className="text-xs tracking-widest uppercase text-foreground/40 mb-4">
@@ -40,7 +38,6 @@ export default function Product() {
 
     return (
         <>
-            <Header />
 
             <main className="pt-32 px-8 max-w-6xl mx-auto">
                 <div className="grid md:grid-cols-2 gap-20">

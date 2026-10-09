@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartStore } from "../store/useCartStore";
-
-const links = [
-    { to: "/", label: "Relics" },
-    { to: "/academy", label: "The Academy" },
-    { to: "/#archives", label: "Archives" },
-];
+import { navLinks } from "../data/navigation";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -34,7 +29,7 @@ export default function Header() {
 
                 <div className="flex items-center gap-6 md:gap-8">
                     <nav className="hidden md:flex gap-10 text-xs tracking-widest uppercase">
-                        {links.map((link) => (
+                        {navLinks.map((link) => (
                             <Link
                                 key={link.label}
                                 to={link.to}
@@ -73,7 +68,7 @@ export default function Header() {
 
             {open && (
                 <nav className="md:hidden absolute top-20 left-0 w-full bg-black border-b border-white/10 flex flex-col items-center gap-8 py-10 text-xs tracking-widest uppercase">
-                    {links.map((link) => (
+                    {navLinks.map((link) => (
                         <Link
                             key={link.label}
                             to={link.to}

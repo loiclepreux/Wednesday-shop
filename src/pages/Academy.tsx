@@ -1,9 +1,7 @@
-import Header from "../components/Header";
 
 export default function Academy() {
     return (
         <>
-            <Header />
 
             <main className="pt-32 px-8 max-w-4xl mx-auto">
                 <h1 className="font-title text-4xl tracking-widest mb-12 text-center">
