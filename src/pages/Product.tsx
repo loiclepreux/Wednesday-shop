@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import { products } from "../data/products";
 import { useCartStore } from "../store/useCartStore";
@@ -8,6 +8,36 @@ export default function Product() {
     const addToCart = useCartStore((state) => state.addToCart);
     const product = products.find((p) => p.id === Number(id));
 
+    if (!product) {
+        return (
+            <>
+                <Header />
+
+                <main className="pt-40 px-8 max-w-2xl mx-auto text-center min-h-screen">
+                    <p className="text-xs tracking-widest uppercase text-foreground/40 mb-4">
+                        Archive error
+                    </p>
+
+                    <h1 className="font-title text-3xl md:text-4xl tracking-widest mb-6">
+                        Artefact not found
+                    </h1>
+
+                    <p className="text-foreground/60 leading-7 mb-12">
+                        This item does not exist in the archives of Nevermore
+                        Academy — or it has been deliberately erased.
+                    </p>
+
+                    <Link
+                        to="/"
+                        className="inline-block border border-white/20 px-8 py-3 text-xs tracking-widest uppercase hover:border-accent hover:text-accent transition-all duration-500"
+                    >
+                        Return to the relics
+                    </Link>
+                </main>
+            </>
+        );
+    }
+
     return (
         <>
             <Header />
@@ -15,18 +45,16 @@ export default function Product() {
             <main className="pt-32 px-8 max-w-6xl mx-auto">
                 <div className="grid md:grid-cols-2 gap-20">
                     <div className="bg-black/40 h-[520px] flex items-center justify-center overflow-hidden">
-                        {product && (
-                            <img
-                                src={product.image}
-                                alt={product.name}
-                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700"
-                            />
-                        )}
+                        <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700"
+                        />
                     </div>
 
                     <div>
                         <h1 className="font-title text-4xl tracking-widest mb-6">
-                            {product?.name}
+                            {product.name}
                         </h1>
 
                         <p className="text-foreground/80 leading-7 mb-8">
@@ -37,12 +65,11 @@ export default function Product() {
                         </p>
 
                         <span className="block text-2xl mb-10">
-                            {product?.price} €
+                            {product.price} €
                         </span>
 
                         <button
-                            disabled={!product}
-                            onClick={() => product && addToCart(product)}
+                            onClick={() => addToCart(product)}
                             className="
                 border border-white/20
                 px-10 py-4
