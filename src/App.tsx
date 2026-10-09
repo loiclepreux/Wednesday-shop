@@ -8,12 +8,14 @@ import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Academy from "./pages/Academy";
 import Checkout from "./pages/checkout";
+import Intro from "./components/Intro";
 
 export default function App() {
     const location = useLocation();
 
     return (
         <>
+            <Intro />
             <Header />
             <Toast />
 
