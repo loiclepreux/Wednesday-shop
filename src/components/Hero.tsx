@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import heroBg from "../assets/backgrounds/mercredi.png";
 
 export default function Hero() {
     return (
         <section
             className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
             style={{
-                backgroundImage: "url(/src/assets/backgrounds/mercredi.png)",
+                backgroundImage: `url(${heroBg})`,
             }}
         >
             <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />

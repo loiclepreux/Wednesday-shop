@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+<defs>
+<radialGradient id="bg" cx="50%" cy="42%" r="70%"><stop offset="0" stop-color="#1c1c22"/><stop offset="0.6" stop-color="#0e0e11"/><stop offset="1" stop-color="#060607"/></radialGradient>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#7c7cff" stop-opacity="0.22"/><stop offset="1" stop-color="#7c7cff" stop-opacity="0"/></radialGradient>
+<linearGradient id="cloth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26262c"/><stop offset="1" stop-color="#141417"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9d9e0"/><stop offset="0.45" stop-color="#6d6d78"/><stop offset="0.7" stop-color="#b8b8c4"/><stop offset="1" stop-color="#3a3a42"/></linearGradient>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.07 0"/></filter>
+<symbol id="raven" viewBox="0 0 100 100"><path d="M50 30c-3 0-5 2-6 4l-6 1 6 2c0 3 1 5 2 7C36 40 22 34 4 36c8 3 14 7 18 12-5 0-9 1-12 3 9 0 18 2 25 6-3 1-5 3-6 5 7-2 13-2 18-1l-3 13 6-7 0 9 4-9 6 7-3-13c5-1 11-1 18 1-1-2-3-4-6-5 7-4 16-6 25-6-3-2-7-3-12-3 4-5 10-9 18-12-18-2-32 4-42 8 1-2 2-4 2-7 0-5-3-8-7-8z"/></symbol>
+</defs>
+<rect width="400" height="500" fill="url(#bg)"/>
+<ellipse cx="200" cy="230" rx="190" ry="190" fill="url(#glow)"/>
+<rect x="14" y="14" width="372" height="472" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
+
+<g>
+<path d="M150 110 Q200 70 250 110 L300 135 Q330 150 335 185 L350 330 Q352 345 338 347 L312 350 L300 225 L298 420 Q298 430 288 430 L112 430 Q102 430 102 420 L100 225 L88 350 L62 347 Q48 345 50 330 L65 185 Q70 150 100 135 Z" fill="url(#cloth)" stroke="#ffffff" stroke-opacity="0.12"/>
+<path d="M150 110 Q200 150 250 110 Q240 80 200 76 Q160 80 150 110Z" fill="#0b0b0d" stroke="#ffffff" stroke-opacity="0.1"/>
+<path d="M188 128 L186 175 M212 128 L214 175" stroke="#e6e6e6" stroke-opacity="0.35" stroke-width="1.5"/>
+<path d="M140 340 L260 340 L268 400 L132 400Z" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
+<circle cx="200" cy="255" r="44" fill="none" stroke="#7c7cff" stroke-opacity="0.75" stroke-width="1.5"/>
+<circle cx="200" cy="255" r="50" fill="none" stroke="#7c7cff" stroke-opacity="0.3"/>
+<use href="#raven" x="168" y="222" width="64" height="64" fill="#e6e6e6" fill-opacity="0.9"/>
+<path d="M102 420 L298 420" stroke="#ffffff" stroke-opacity="0.1"/>
+</g>
+<ellipse cx="200" cy="432" rx="120" ry="8" fill="#000" opacity="0.5"/>
+<text x="200" y="470" text-anchor="middle" font-family="Georgia, serif" font-size="11" letter-spacing="5" fill="#e6e6e6" fill-opacity="0.45">RAVEN SIGIL HOODIE</text>
+<rect width="400" height="500" filter="url(#grain)"/>
+</svg>

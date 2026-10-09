@@ -5,18 +5,18 @@ export const products: Product[] = [
         id: 1,
         name: "Raven Sigil Hoodie",
         price: 89,
-        image: "https://via.placeholder.com/400x500?text=Hoodie",
+        image: "/products/raven-hoodie.svg",
     },
     {
         id: 2,
         name: "Obsidian Raven Ring",
         price: 49,
-        image: "https://via.placeholder.com/400x500?text=Ring",
+        image: "/products/raven-ring.svg",
     },
     {
         id: 3,
         name: "Nevermore Archive Tote",
         price: 59,
-        image: "https://via.placeholder.com/400x500?text=Tote",
+        image: "/products/archive-tote.svg",
     },
 ];
