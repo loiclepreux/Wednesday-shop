@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { products } from "../data/products";
 import { useCartStore } from "../store/useCartStore";
 import { useToastStore } from "../store/useToastStore";
+import { archives } from "../data/archives";
 
 export default function Product() {
     const { id } = useParams();
@@ -36,6 +37,8 @@ export default function Product() {
             </>
         );
     }
+
+    const record = archives.find((r) => r.productId === product.id);
 
     return (
         <>
@@ -83,16 +86,22 @@ export default function Product() {
                             Add to Cart
                         </button>
 
-                        <div className="mt-12 border-t border-white/10 pt-6">
-                            <p className="text-xs tracking-widest uppercase text-foreground/40 mb-2">
-                                Archive note
-                            </p>
-                            <p className="text-sm text-foreground/60 leading-6">
-                                Classified as a personal item. Circulation
-                                within the academy remains limited to selected
-                                individuals.
-                            </p>
-                        </div>
+                        {record && (
+                            <Link
+                                to={`/archives/${record.id}`}
+                                className="group mt-12 block border-t border-white/10 pt-6"
+                            >
+                                <p className="text-xs tracking-widest uppercase text-foreground/40 mb-2">
+                                    Archive note · {record.caseNumber}
+                                </p>
+                                <p className="text-sm text-foreground/60 leading-6 mb-3">
+                                    {record.excerpt}
+                                </p>
+                                <span className="text-xs tracking-widest uppercase text-foreground/50 group-hover:text-accent transition">
+                                    Read the file →
+                                </span>
+                            </Link>
+                        )}
                     </div>
                 </div>
             </main>

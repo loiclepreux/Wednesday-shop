@@ -11,6 +11,7 @@ import Checkout from "./pages/checkout";
 import Intro from "./components/Intro";
 import Relics from "./pages/Relics";
 import Archives from "./pages/Archives";
+import ArchiveFile from "./pages/ArchiveFile";
 
 export default function App() {
     const location = useLocation();
@@ -40,6 +41,7 @@ export default function App() {
                         <Route path="/checkout" element={<Checkout />} />
                         <Route path="/relics" element={<Relics />} />
                         <Route path="/archives" element={<Archives />} />
+                        <Route path="/archives/:id" element={<ArchiveFile />} />
                     </Routes>
                 </motion.div>
             </AnimatePresence>
