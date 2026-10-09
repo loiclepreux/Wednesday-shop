@@ -33,7 +33,7 @@ export default function Hero() {
                 </p>
 
                 <Link
-                    to="/#archives"
+                    to="/relics"
                     className="
     inline-flex items-center gap-3
     border border-white/20 px-8 py-3

@@ -9,6 +9,7 @@ import Cart from "./pages/Cart";
 import Academy from "./pages/Academy";
 import Checkout from "./pages/checkout";
 import Intro from "./components/Intro";
+import Relics from "./pages/Relics";
 
 export default function App() {
     const location = useLocation();
@@ -36,6 +37,7 @@ export default function App() {
                         <Route path="/cart" element={<Cart />} />
                         <Route path="/academy" element={<Academy />} />
                         <Route path="/checkout" element={<Checkout />} />
+                        <Route path="/relics" element={<Relics />} />
                     </Routes>
                 </motion.div>
             </AnimatePresence>
