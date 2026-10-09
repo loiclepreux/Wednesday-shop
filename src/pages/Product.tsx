@@ -53,15 +53,16 @@ export default function Product() {
                     </div>
 
                     <div>
+                        <p className="text-xs tracking-widest uppercase text-foreground/40 mb-4">
+                            {product.category}
+                        </p>
+
                         <h1 className="font-title text-4xl tracking-widest mb-6">
                             {product.name}
                         </h1>
 
                         <p className="text-foreground/80 leading-7 mb-8">
-                            This artefact is catalogued within the restricted
-                            archives of Nevermore Academy. Its presence is
-                            subtle, its purpose unclear, yet those who possess
-                            it rarely part with it.
+                            {product.description}
                         </p>
 
                         <span className="block text-2xl mb-10">

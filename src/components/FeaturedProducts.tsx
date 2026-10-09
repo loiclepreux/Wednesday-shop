@@ -46,7 +46,7 @@ export default function FeaturedProducts() {
                             </div>
 
                             <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/40 mb-2">
-                                Archived Item
+                                {product.category}
                             </p>
 
                             <h3 className="font-title tracking-wide mb-2">

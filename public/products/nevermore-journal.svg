@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+<defs>
+<radialGradient id="bg" cx="50%" cy="42%" r="70%"><stop offset="0" stop-color="#1c1c22"/><stop offset="0.6" stop-color="#0e0e11"/><stop offset="1" stop-color="#060607"/></radialGradient>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#7c7cff" stop-opacity="0.22"/><stop offset="1" stop-color="#7c7cff" stop-opacity="0"/></radialGradient>
+<linearGradient id="cloth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26262c"/><stop offset="1" stop-color="#141417"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9d9e0"/><stop offset="0.45" stop-color="#6d6d78"/><stop offset="0.7" stop-color="#b8b8c4"/><stop offset="1" stop-color="#3a3a42"/></linearGradient>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.07 0"/></filter>
+<symbol id="raven" viewBox="0 0 100 100"><path d="M50 30c-3 0-5 2-6 4l-6 1 6 2c0 3 1 5 2 7C36 40 22 34 4 36c8 3 14 7 18 12-5 0-9 1-12 3 9 0 18 2 25 6-3 1-5 3-6 5 7-2 13-2 18-1l-3 13 6-7 0 9 4-9 6 7-3-13c5-1 11-1 18 1-1-2-3-4-6-5 7-4 16-6 25-6-3-2-7-3-12-3 4-5 10-9 18-12-18-2-32 4-42 8 1-2 2-4 2-7 0-5-3-8-7-8z"/></symbol>
+</defs>
+<rect width="400" height="500" fill="url(#bg)"/>
+<ellipse cx="200" cy="230" rx="190" ry="190" fill="url(#glow)"/>
+<rect x="14" y="14" width="372" height="472" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
+
+<g transform="rotate(-6 200 270)">
+<rect x="118" y="118" width="176" height="290" rx="4" fill="#0a0a0c"/>
+<rect x="110" y="110" width="176" height="290" rx="4" fill="url(#cloth)" stroke="#ffffff" stroke-opacity="0.15"/>
+<rect x="110" y="110" width="16" height="290" fill="#000" fill-opacity="0.35"/>
+<rect x="140" y="140" width="120" height="230" fill="none" stroke="#7c7cff" stroke-opacity="0.55"/>
+<rect x="146" y="146" width="108" height="218" fill="none" stroke="#e6e6e6" stroke-opacity="0.15"/>
+<use href="#raven" x="170" y="190" width="60" height="60" fill="#e6e6e6" fill-opacity="0.85"/>
+<text x="200" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="11" letter-spacing="3" fill="#e6e6e6" fill-opacity="0.85">JOURNAL</text>
+<path d="M240 400 L240 440 L248 432 L256 440 L256 400" fill="#7c7cff" fill-opacity="0.7"/>
+</g>
+<ellipse cx="200" cy="432" rx="120" ry="8" fill="#000" opacity="0.5"/>
+<text x="200" y="470" text-anchor="middle" font-family="Georgia, serif" font-size="11" letter-spacing="5" fill="#e6e6e6" fill-opacity="0.45">NEVERMORE JOURNAL</text>
+<rect width="400" height="500" filter="url(#grain)"/>
+</svg>
