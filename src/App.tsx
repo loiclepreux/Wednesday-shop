@@ -12,6 +12,7 @@ import Intro from "./components/Intro";
 import Relics from "./pages/Relics";
 import Archives from "./pages/Archives";
 import ArchiveFile from "./pages/ArchiveFile";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
     const location = useLocation();
@@ -42,6 +43,7 @@ export default function App() {
                         <Route path="/relics" element={<Relics />} />
                         <Route path="/archives" element={<Archives />} />
                         <Route path="/archives/:id" element={<ArchiveFile />} />
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                 </motion.div>
             </AnimatePresence>
