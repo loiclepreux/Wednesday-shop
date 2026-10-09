@@ -10,6 +10,7 @@ import Academy from "./pages/Academy";
 import Checkout from "./pages/checkout";
 import Intro from "./components/Intro";
 import Relics from "./pages/Relics";
+import Archives from "./pages/Archives";
 
 export default function App() {
     const location = useLocation();
@@ -38,6 +39,7 @@ export default function App() {
                         <Route path="/academy" element={<Academy />} />
                         <Route path="/checkout" element={<Checkout />} />
                         <Route path="/relics" element={<Relics />} />
+                        <Route path="/archives" element={<Archives />} />
                     </Routes>
                 </motion.div>
             </AnimatePresence>
