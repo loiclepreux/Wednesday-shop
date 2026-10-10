@@ -1,73 +1,74 @@
-# React + TypeScript + Vite
+# Nevermore Archives
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Boutique en ligne fictive inspirée de l'univers de _Mercredi_. Chaque produit est un « artefact » d'une académie mystérieuse, avec son propre dossier d'archive qui raconte son histoire.
 
-Currently, two official plugins are available:
+**🔗 Site en ligne : [projet-wednesday.loic-lepreux.com](https://projet-wednesday.loic-lepreux.com)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Page Relics](docs/preview-relics.png)
 
-## React Compiler
+## Fonctionnalités
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Relics** : catalogue complet avec recherche, filtres par catégorie et tri par prix
+- **Fiches produits** : description, choix de la taille (sweat), artefacts liés et lien vers le dossier d'archive
+- **Archives** : dossiers reliés aux produits, dont un dossier « scellé » au contenu caviardé
+- **Academy** : les lieux de l'académie et une chronologie, chaque élément menant à son dossier
+- **Panier** : ajout, quantités, tailles, sauvegarde dans le navigateur, notification à chaque ajout
+- **Commande** : formulaire de démonstration avec numéro de commande (aucun paiement réel)
+- **Animations** : intro au premier chargement, transitions entre les pages, apparitions au défilement
+- **Responsive** : menu mobile, mise en page adaptée du téléphone à l'écran large
+- **Page 404** dans le thème du site
 
-## Expanding the ESLint configuration
+![Dossier d'archive](docs/preview-archive.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technologies
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Outil                         | Utilisation                                                                    |
+| ----------------------------- | ------------------------------------------------------------------------------ |
+| **React 19** + **TypeScript** | Interface et typage des données                                                |
+| **Vite**                      | Serveur de développement et build                                              |
+| **React Router**              | Navigation entre les pages (routes dynamiques `/product/:id`, `/archives/:id`) |
+| **Zustand**                   | État global du panier et des notifications, avec sauvegarde (`persist`)        |
+| **Framer Motion**             | Intro, transitions de pages et animations au défilement                        |
+| **Tailwind CSS**              | Mise en forme                                                                  |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Organisation des données
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Les données sont reliées entre elles, comme dans une base de données :
+
+```
+products.ts   ← un produit
+archives.ts   ← un dossier, relié à un produit par productId
+academy.ts    ← des lieux et des dates, reliés à un dossier par archiveId
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Une fiche produit retrouve son dossier, un dossier retrouve son produit, et la page Academy mène aux deux.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── components/   Header, Footer, ProductCard, Toast, Intro…
+├── data/         produits, archives, académie, navigation
+├── pages/        Home, Relics, Product, Cart, Checkout, Archives, ArchiveFile, Academy, NotFound
+├── store/        panier et notifications (Zustand)
+└── types/        types TypeScript
+```
+
+## Lancer le projet en local
+
+```bash
+git clone https://github.com/loiclepreux/Wednesday-shop.git
+cd Wednesday-shop
+npm install
+npm run dev
+```
+
+Puis ouvrir http://localhost:5173
+
+Pour générer la version de production : `npm run build` (le résultat se trouve dans `dist/`).
+
+## À propos
+
+Projet non officiel réalisé à des fins de démonstration pour mon portfolio. Aucun produit n'est réellement vendu. Les visuels des artefacts et le logo sont des créations originales.
+
+**Loïc Lepreux** — [Portfolio](https://loic-lepreux.com) · [GitHub](https://github.com/loiclepreux)
