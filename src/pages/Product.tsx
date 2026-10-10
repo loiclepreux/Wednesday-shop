@@ -4,12 +4,14 @@ import { useCartStore } from "../store/useCartStore";
 import { useToastStore } from "../store/useToastStore";
 import { archives } from "../data/archives";
 import ProductCard from "../components/ProductCard";
+import { useState } from "react";
 
 export default function Product() {
     const { id } = useParams();
     const addToCart = useCartStore((state) => state.addToCart);
     const showToast = useToastStore((state) => state.showToast);
     const product = products.find((p) => p.id === Number(id));
+    const [size, setSize] = useState<string | null>(null);
 
     if (!product) {
         return (
@@ -40,6 +42,7 @@ export default function Product() {
     }
 
     const record = archives.find((r) => r.productId === product.id);
+    const needsSize = Boolean(product.sizes) && !size;
     const related = [
         ...products.filter(
             (p) => p.id !== product.id && p.category === product.category,
@@ -78,21 +81,42 @@ export default function Product() {
                             {product.price} €
                         </span>
 
+                        {product.sizes && (
+                            <div className="mb-8">
+                                <p className="text-xs tracking-widest uppercase text-foreground/40 mb-3">
+                                    Size
+                                </p>
+                                <div className="flex gap-3">
+                                    {product.sizes.map((s) => (
+                                        <button
+                                            key={s}
+                                            onClick={() => setSize(s)}
+                                            className={`w-12 h-12 border text-xs tracking-widest transition ${
+                                                size === s
+                                                    ? "border-accent text-accent bg-accent/10"
+                                                    : "border-white/20 hover:border-white/50"
+                                            }`}
+                                        >
+                                            {s}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
                         <button
+                            disabled={needsSize}
                             onClick={() => {
-                                addToCart(product);
-                                showToast(product.name);
+                                addToCart(product, size ?? undefined);
+                                showToast(
+                                    size
+                                        ? `${product.name} — ${size}`
+                                        : product.name,
+                                );
                             }}
-                            className="
-                border border-white/20
-                px-10 py-4
-                text-xs tracking-widest uppercase
-                transition-all duration-500
-                disabled:opacity-30 disabled:cursor-not-allowed
-                hover:border-accent hover:text-accent
-              "
+                            className="border border-white/20 px-10 py-4 text-xs tracking-widest uppercase transition-all duration-500 disabled:opacity-30 disabled:cursor-not-allowed hover:border-accent hover:text-accent"
                         >
-                            Add to Cart
+                            {needsSize ? "Select a size" : "Add to Cart"}
                         </button>
 
                         {record && (

@@ -68,7 +68,6 @@ export default function Checkout() {
 
     return (
         <>
-
             <main className="pt-32 pb-24 px-8 max-w-6xl mx-auto">
                 <h1 className="font-title text-4xl tracking-widest mb-16">
                     Checkout
@@ -115,11 +114,13 @@ export default function Checkout() {
                         <ul className="space-y-4 mb-8">
                             {items.map((item) => (
                                 <li
-                                    key={item.id}
+                                    key={item.key}
                                     className="flex justify-between text-sm"
                                 >
                                     <span>
-                                        {item.name} × {item.quantity}
+                                        {item.name}
+                                        {item.size && ` (${item.size})`} ×{" "}
+                                        {item.quantity}
                                     </span>
                                     <span>
                                         {(

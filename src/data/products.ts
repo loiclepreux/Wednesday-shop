@@ -7,6 +7,7 @@ export const products: Product[] = [
         category: "Apparel",
         price: 89,
         image: "/products/raven-hoodie.svg",
+        sizes: ["S", "M", "L", "XL"],
         description:
             "Heavy black cotton, worn soft by long nights in the library tower. The raven sigil is stitched in violet thread — the colour reserved for students who never ask permission.",
     },

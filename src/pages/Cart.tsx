@@ -1,5 +1,4 @@
 import { useCartStore } from "../store/useCartStore";
-import type { Product } from "../types/product";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
@@ -14,7 +13,6 @@ export default function Cart() {
 
     return (
         <>
-
             <main className="pt-32 px-8 max-w-6xl mx-auto">
                 <h1 className="font-title text-4xl tracking-widest mb-16">
                     Cart
@@ -24,15 +22,22 @@ export default function Cart() {
                     <p className="text-foreground/60">Your cart is empty.</p>
                 ) : (
                     <div className="space-y-12">
-                        {items.map((item: Product) => (
+                        {items.map((item) => (
                             <div
-                                key={item.id}
+                                key={item.key}
                                 className="flex justify-between items-center border-b border-white/10 pb-6"
                             >
                                 <div>
                                     <h2 className="font-title tracking-wide">
                                         {item.name}
                                     </h2>
+
+                                    {item.size && (
+                                        <p className="text-xs tracking-widest uppercase text-foreground/40">
+                                            Size {item.size}
+                                        </p>
+                                    )}
+
                                     <p className="text-sm text-foreground/60">
                                         {item.price} €
                                     </p>
@@ -41,7 +46,7 @@ export default function Cart() {
                                 <div className="flex items-center gap-4">
                                     <button
                                         onClick={() =>
-                                            decreaseQuantity(item.id)
+                                            decreaseQuantity(item.key)
                                         }
                                         className="border border-white/20 px-3 py-1 hover:border-accent"
                                     >
@@ -54,7 +59,7 @@ export default function Cart() {
 
                                     <button
                                         onClick={() =>
-                                            increaseQuantity(item.id)
+                                            increaseQuantity(item.key)
                                         }
                                         className="border border-white/20 px-3 py-1 hover:border-accent"
                                     >
@@ -62,7 +67,7 @@ export default function Cart() {
                                     </button>
 
                                     <button
-                                        onClick={() => removeFromCart(item.id)}
+                                        onClick={() => removeFromCart(item.key)}
                                         className="ml-4 text-xs text-foreground/50 hover:text-accent"
                                     >
                                         Remove
