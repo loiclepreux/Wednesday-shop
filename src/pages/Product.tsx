@@ -3,6 +3,7 @@ import { products } from "../data/products";
 import { useCartStore } from "../store/useCartStore";
 import { useToastStore } from "../store/useToastStore";
 import { archives } from "../data/archives";
+import ProductCard from "../components/ProductCard";
 
 export default function Product() {
     const { id } = useParams();
@@ -39,6 +40,14 @@ export default function Product() {
     }
 
     const record = archives.find((r) => r.productId === product.id);
+    const related = [
+        ...products.filter(
+            (p) => p.id !== product.id && p.category === product.category,
+        ),
+        ...products.filter(
+            (p) => p.id !== product.id && p.category !== product.category,
+        ),
+    ].slice(0, 3);
 
     return (
         <>
@@ -104,6 +113,21 @@ export default function Product() {
                         )}
                     </div>
                 </div>
+
+                <section className="mt-32 border-t border-white/10 pt-20">
+                    <p className="text-xs tracking-[0.3em] uppercase text-foreground/40 mb-4 text-center">
+                        From the same archives
+                    </p>
+                    <h2 className="font-title text-2xl md:text-3xl tracking-widest mb-16 text-center">
+                        You may also be drawn to
+                    </h2>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
+                        {related.map((item) => (
+                            <ProductCard key={item.id} product={item} />
+                        ))}
+                    </div>
+                </section>
             </main>
         </>
     );
